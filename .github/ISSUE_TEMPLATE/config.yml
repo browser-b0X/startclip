@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security issue
+    url: https://github.com/browser-b0X/startclip/security/policy
+    about: Report a vulnerability privately. Please don't post it as an issue.

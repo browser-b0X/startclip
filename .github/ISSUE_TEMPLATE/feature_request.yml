@@ -1,0 +1,25 @@
+name: Idea or suggestion
+description: Suggest a feature or an improvement.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. Please use made-up apps and paths in examples, and never paste tokens,
+        passwords or keys. See SECURITY.md for security issues.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would make starting your apps easier?
+      description: The situation or friction you ran into.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: How you imagine it working. Sketches and examples are welcome (made-up apps and paths, please).
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else

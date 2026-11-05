@@ -1,0 +1,56 @@
+name: Bug report
+description: Something in Startclip doesn't work as described.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please use a made-up app where you can, and never paste tokens,
+        passwords or keys, including any in an `env VAR=value` prefix of a command. Remove personal
+        paths and host names you don't want public. See SECURITY.md for security issues.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open index.html
+        2. Click the card ...
+        3. Paste the command into a terminal
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The commit you cloned, or the date you downloaded Startclip.
+      placeholder: e.g. a1b2c3d, or 2026-11-05
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [Arch-based Linux, Other Linux, Windows 11, Windows 10, macOS, Other]
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      placeholder: e.g. Chromium 142, Firefox 145, Edge
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      multiple: true
+      options: [Get started, The map and its cards, Startup chains, Re-launch or removal scripts, Search and keyboard, Themes and layout, Setup shortcuts (setup.sh or setup.cmd), The launchpad-add-cell skill, Something else]
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error messages or the redacted command
+      render: text

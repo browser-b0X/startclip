@@ -1,0 +1,98 @@
+{
+  "catalog": [
+    {"id":"modeler","name":"Modeler","view":"desktop","group":"creative","type":"3D creation","command":"/usr/bin/modeler","note":"Opens the desktop app from its package.","icon":"cube"},
+    {"id":"gamehub","name":"Game Hub","view":"desktop","group":"creative","type":"Editor & project manager","command":"/usr/bin/gamehub","note":"Manage game projects, editor installs and licensing.","icon":"layers"},
+    {"id":"gameeditor","name":"Game Editor","view":"desktop","group":"creative","type":"Version 6.0","command":"~/Games/Editor/6.0/gameeditor","note":"Launches the installed editor directly. The hub does not have to be running.","icon":"cube"},
+    {"id":"codestudio","name":"Code Studio","view":"desktop","group":"coding","type":"Code editor","command":"/usr/bin/codestudio","note":"Launches the installed editor.","icon":"code"},
+    {"id":"agentdesk","name":"Agent Desk","view":"desktop","group":"coding","type":"Coding agent workspace","command":"/usr/bin/agentdesk","note":"Uses its bundled command-line tool. No separate terminal session is needed.","icon":"terminal"},
+    {"id":"chatdesk","name":"Chat Desk","view":"desktop","group":"coding","type":"Desktop assistant","command":"/usr/bin/chatdesk","note":"Opens the desktop app. Account access depends on your app settings.","icon":"spark"},
+    {"id":"forensics","name":"Phone Forensics","view":"desktop","group":"coding","type":"Mobile forensic toolkit","command":"/usr/bin/forensics","note":"Installed with pacman. Run it from the folder holding your device backup.","icon":"terminal"},
+    {"id":"relaydesk","name":"Relay Desk","view":"desktop","group":"daily","type":"Agent desktop interface","command":"/usr/bin/relaydesk","note":"Launches the desktop interface. Providers are configured separately.","icon":"nodes"},
+    {"id":"browser","name":"Web Browser","view":"desktop","group":"daily","type":"Browser","command":"/usr/bin/web-browser","note":"Uses the installed system launcher.","icon":"globe"},
+    {"id":"ticker","name":"Ticker","view":"desktop","group":"daily","type":"Market watcher · 0.2.4","command":"~/Applications/Ticker-0.2.4-x86_64.AppImage","note":"A Linux AppImage. Launching opens the app.","icon":"chart"},
+    {"id":"notebook","name":"Notebook","view":"desktop","group":"daily","type":"Knowledge base","command":"/usr/bin/notebook","note":"Opens the desktop app from its pacman package. Vaults are managed inside the app.","icon":"book"},
+    {"id":"winbox","name":"Win Box","view":"desktop","group":"daily","type":"Windows apps in a container","command":"/opt/winbox/winbox","note":"Runs Windows apps in a container. Copying it starts the Docker engine first when it is not ready.","icon":"window"},
+    {"id":"coder","name":"Coder CLI","view":"ai","group":"agents","type":"Terminal coding agent","command":"~/.local/bin/coder","note":"Run from the project directory you want to work in. Requires your configured account or provider.","icon":"terminal","tone":"agent"},
+    {"id":"pilot","name":"Pilot CLI","view":"ai","group":"agents","type":"Terminal coding agent","command":"/usr/bin/pilot","note":"Run from your project directory. Authentication depends on your existing configuration.","icon":"code","tone":"agent"},
+    {"id":"helper","name":"Helper Agent","view":"ai","group":"agents","type":"Terminal assistant","command":"~/.local/bin/helper","note":"Talks to the local endpoint 127.0.0.1:8080. Start the Reason server first; other model servers also use port 8080.","icon":"nodes","tone":"agent"},
+    {"id":"chatter","name":"Chatter","view":"ai","group":"agents","type":"Interactive model chat","command":"/usr/bin/chatter chat","note":"Attaches to a compatible server on port 8000. No ready model was verified.","status":"setup","warning":"Model setup required. The launcher is installed; this is not a preconfigured model session.","icon":"terminal","tone":"agent"},
+    {"id":"scribe","name":"Scribe CLI","view":"ai","group":"agents","type":"Terminal coding agent","command":"~/.local/bin/scribe","note":"Run it from the project directory you want to work in.","icon":"code","tone":"agent"},
+    {"id":"doer","name":"Doer","view":"ai","group":"agents","type":"Autonomous terminal agent","command":"~/.local/bin/doer","note":"Run it from the folder it should work in. Provider settings are its own.","icon":"spark","tone":"agent"},
+    {"id":"memo","name":"Memo","view":"ai","group":"agents","type":"Knowledge-base CLI","command":"~/.local/bin/memo","note":"A personal knowledge base with hybrid search. Its database must be reachable.","icon":"brain","tone":"agent"},
+    {"id":"orbit7","name":"Orbit · 7B","view":"ai","group":"models","type":"Local coding model","command":"bash ~/models/start-orbit-7b.sh","port":"8000","note":"Binary and model are present. Shares port 8000 with several other apps; do not start them together.","status":"caution","warning":"This script forcibly stops matching model servers before launching. Save other model work first.","icon":"chip","tone":"model"},
+    {"id":"orbit9","name":"Orbit · 9B","view":"ai","group":"models","type":"Balanced runtime","command":"bash ~/models/serve-orbit-9b.sh","port":"8080","note":"Model and runtime are present. Choose one server per port.","status":"caution","warning":"This script forcibly stops matching model servers. Port 8080 may also be in use.","icon":"chip","tone":"model"},
+    {"id":"orbit35","name":"Orbit · 35B","view":"ai","group":"models","type":"Large runtime","command":"bash ~/models/serve-orbit-35b.sh","port":"8080","note":"Model and runtime are present. Shares port 8080 with other model choices.","status":"caution","warning":"This script forcibly stops matching model servers. Review current model workloads before pasting.","icon":"chip","tone":"model"},
+    {"id":"orbitalt","name":"Orbit · alternate","view":"ai","group":"models","type":"Locked-memory configuration","command":"bash ~/models/serve-orbit-locked.sh","port":"8080","note":"Assets present. Locked-memory limits and hardware fit are untested.","icon":"chip","tone":"model"},
+    {"id":"reason","name":"Reason · 14B","view":"ai","group":"models","type":"Local reasoning model","command":"bash ~/models/run-reason-14b.sh","port":"8080","note":"Runtime and quantized model are present. Shares port 8080; memory needs have not been retested.","icon":"chip","tone":"model"},
+    {"id":"vision","name":"Vision Model","view":"ai","group":"models","type":"Vision model","command":"bash ~/models/start-vision.sh","port":"8091","note":"Model and vision projector are present. Binds to loopback port 8091.","icon":"eye","tone":"model"},
+    {"id":"cedar","name":"Cedar · lean","view":"ai","group":"models","type":"27B · bundled runtime","command":"bash ~/cedar-small-gpu/prebuilt/cedar-linux-x64-runtime-12.4-dcc3be7/serve-12gb-lean.sh","port":"8899","note":"Verified lean model and bundled runtime paths. Available video memory still matters.","icon":"chip","tone":"model"},
+    {"id":"cedarbase","name":"Cedar · base","view":"ai","group":"models","type":"12GB profile","command":"bash ~/cedar-small-gpu/prebuilt/cedar-linux-x64-runtime-12.4-dcc3be7/serve-12gb.sh","port":"8899","note":"Base model and runtime present. An alternative to the lean build, not a simultaneous server.","icon":"chip","tone":"model"},
+    {"id":"imgup","name":"Image Server · upscale","view":"ai","group":"models","type":"Image generation server","command":"bash ~/imageserver/start-upscale.sh","port":"8188","note":"Serves its web UI on 127.0.0.1:8188. An alternative to the draft launcher, not a second server.","icon":"image","tone":"model"},
+    {"id":"imgdraft","name":"Image Server · draft","view":"ai","group":"models","type":"Image generation server","command":"bash ~/imageserver/start-draft.sh","port":"8188","note":"Serves its web UI on 127.0.0.1:8188, tuned for low memory. An alternative to the upscale launcher.","icon":"image","tone":"model"},
+    {"id":"gate","name":"Gate HTTP","view":"ai","group":"connections","type":"Decision engine","command":"bash ~/gate/start_gate_server.sh","port":"8100","note":"Starts the HTTP service on loopback. Default model assets are present.","icon":"server","tone":"model"},
+    {"id":"gatemcp","name":"Gate MCP","view":"ai","group":"connections","type":"stdio client connection","command":"bash ~/gate/start_gate_mcp.sh","note":"An MCP client normally spawns this stdio process. It connects to Gate HTTP on port 8100.","icon":"nodes","tone":"agent"},
+    {"id":"sprout","name":"Sprout","view":"ai","group":"attention","type":"Missing model files","command":"bash ~/models/launch-sprout.sh","port":"8080","note":"The launcher exists, but both referenced models are missing.","status":"blocked","warning":"Not ready to launch. Restore the required models and review network binding first. Command copying is disabled for this entry.","icon":"chip","tone":"model"},
+    {"id":"stalled","name":"Stalled build","view":"ai","group":"attention","type":"Incomplete model setup","command":"bash ~/cedar-small-gpu/graft/serve.sh","port":"8899","note":"The default merged model is missing. Use the verified lean entry instead.","status":"blocked","warning":"Not ready to launch. This command does not work on this machine yet.","icon":"chip","tone":"model"},
+    {"id":"switcher","name":"Model Switcher","view":"ai","group":"attention","type":"Configuration needs repair","command":"bash ~/models/run-switcher.sh","port":"8000","note":"The config has an empty models mapping and a conflicting backend port.","status":"blocked","warning":"Not ready to launch. The script also forcibly stops model servers; repair the config before using it.","icon":"nodes","tone":"model"},
+    {"id":"engine","name":"Docker Engine","view":"services","group":"foundation","type":"Docker engine provider","command":"/usr/bin/demo-engine","note":"Open it and wait for its engine to be ready. An already-running compatible engine also works.","icon":"layers","tone":"web"},
+    {"id":"ledger","name":"Ledger","view":"services","group":"docker","type":"Personal finance","command":"cd ~/Projects/ledger; and docker compose up -d","port":"3001","note":"Fish-shell command. Requires a ready Docker engine; Compose starts the app and its data services.","status":"setup","warning":"Port 3001 conflicts with Scraper's browser websocket. Docker ports may be reachable beyond loopback.","icon":"chart","tone":"web"},
+    {"id":"budget","name":"Budget Board","view":"services","group":"docker","type":"Finance dashboard","command":"bash ~/budget/start.sh","port":"3000 · 8000","note":"Uses the script path to keep its working directory. Requires Docker. Backend port 8000 conflicts with Reader.","status":"caution","warning":"The script builds containers and may replace its environment file. Its ports publish on all interfaces, so they may be reachable from your network.","icon":"layers","tone":"web"},
+    {"id":"scraper","name":"Scraper","view":"services","group":"docker","type":"Extraction stack","command":"bash ~/labstack/stack.sh up --scraper","port":"5173 · 8081","note":"Starts the scraper alone. Docker engine and image readiness are unverified.","status":"setup","warning":"Port 3001 conflicts with Ledger. Its database port publishes on all interfaces, so it may be reachable from your network.","icon":"globe","tone":"web"},
+    {"id":"reader","name":"Reader Backend","view":"services","group":"research","type":"Research stack","command":"bash ~/labstack/stack.sh up","port":"8000","note":"Starts shared dependencies and the backend, not the frontend.","status":"setup","warning":"Requires Docker and configured integrations. Backend 8000 conflicts with several model launchers.","icon":"search","tone":"web"},
+    {"id":"parser","name":"Doc Parser","view":"services","group":"research","type":"Document processing","command":"bash ~/labstack/stack.sh up --parser","port":"8001","note":"Starts the parser alone on loopback 8001. Model weights are unverified.","icon":"file","tone":"web"},
+    {"id":"shelf","name":"Bookshelf","view":"services","group":"independent","type":"Local bookmark library","command":"bash ~/bookshelf/start_bookshelf.sh","port":"5001","note":"Starts the server and opens the built frontend.","icon":"bookmark","tone":"web"},
+    {"id":"router","name":"Prompt Router","view":"services","group":"independent","type":"Local model router","command":"~/.local/opt/router/bin/router-server","port":"3011","note":"Loopback only; dashboard on port 3011.","icon":"server","tone":"web"},
+    {"id":"auditor","name":"Device Auditor","view":"services","group":"independent","type":"Android security auditor","command":"bash ~/auditor/start-auditor.sh","port":"8095","note":"Serves the browser-based auditor on 127.0.0.1:8095 from its checkout.","icon":"eye","tone":"web"}
+  ],
+  "views": {
+    "services":{"title":"Web services","subtitle":"Start the foundations first. Check shared ports before launching.","default":"all","groups":{"foundation":"Start here · Docker if needed","docker":"Docker applications","research":"Research & documents","independent":"Independent apps"}},
+    "desktop":{"title":"Desktop apps","subtitle":"Your daily tools, one command away.","default":"all","groups":{"creative":"Create & build","coding":"Code & collaborate","daily":"Everyday tools"}},
+    "ai":{"title":"AI tools","subtitle":"Pick an agent, a model, or a connection. One workflow at a time.","default":"agents","groups":{"agents":"Agents","models":"Model servers","connections":"Connections","attention":"Needs attention"}}
+  },
+  "meta": {"checked":"2026-01-15"},
+  "tables": {
+    "connections": [
+      {"from":"gamehub","to":"gameeditor","optional":true},
+      {"from":"reason","to":"helper","optional":true},
+      {"from":"gate","to":"gatemcp"},
+      {"from":"engine","to":"ledger"},
+      {"from":"engine","to":"budget"},
+      {"from":"engine","to":"scraper"},
+      {"from":"engine","to":"reader"},
+      {"from":"engine","to":"winbox"}
+    ],
+    "dependencyStartup": {
+      "engine": {"check":{"kind":"command","run":"docker info","seconds":5},"ready":"the Docker engine answers docker info","timeout":180},
+      "gate": {"prepare":"export GATE_HOST=127.0.0.1 GATE_PORT=8100","check":{"kind":"http","url":"http://127.0.0.1:8100/health","expect":"\"status\"[[:space:]]*:[[:space:]]*\"ok\"","seconds":3},"ready":"Gate HTTP reports healthy on 127.0.0.1:8100","timeout":300}
+    },
+    "removalPackages": {
+      "modeler":"modeler","gamehub":"gamehub","codestudio":"codestudio-bin","agentdesk":"agentdesk-bin","chatdesk":"chatdesk-bin",
+      "relaydesk":"relaydesk-bin","browser":"web-browser-bin","pilot":"pilot-bin","chatter":"chatter-bin","engine":"demo-engine-bin",
+      "notebook":"notebook","winbox":"winbox","forensics":"forensics"
+    },
+    "actionComposeDirs": {"ledger":"Projects/ledger","budget":"budget","scraper":"labstack/scraper"},
+    "removalAppImages": {"ticker":"Applications/Ticker-0.2.4-x86_64.AppImage"},
+    "removalPipx": {"parser":"parser-tool"},
+    "manualRelaunchIds": ["modeler","gamehub","gameeditor","codestudio","agentdesk","chatdesk","relaydesk","browser","ticker","coder","pilot","helper","chatter","orbitalt","reason","vision","cedar","cedarbase","gate","engine","parser","shelf","notebook","imgup","imgdraft","scribe","doer","memo","winbox","router","auditor","forensics"],
+    "relaunchReasons": {
+      "orbit7":"The launcher forcibly stops shared model processes. No isolated re-launch is verified; review the startup warning and stop the intended server manually.",
+      "orbit9":"The launcher forcibly stops shared model processes. No isolated re-launch is verified; review the startup warning and stop the intended server manually.",
+      "orbit35":"The launcher forcibly stops shared model processes. No isolated re-launch is verified; review the startup warning and stop the intended server manually.",
+      "gatemcp":"Re-launch from your MCP client by reconnecting this server. The client owns its stdio process.",
+      "reader":"No isolated safe restart is verified. Stop the backend in its owning terminal before using the startup chain."
+    },
+    "removalReasons": {
+      "gameeditor":"Remove this editor version through Game Hub. Projects and licenses must be kept separately.",
+      "coder":"Native installation: no complete settings-preserving uninstall has been verified. Shared integrations are left untouched.",
+      "helper":"The agent environment lives beside personal configuration. No safe automated uninstall is verified.",
+      "gate":"Gate HTTP and MCP share an environment and model assets. Remove them together manually after reviewing dependents.",
+      "gatemcp":"This client shares the Gate installation. Remove its entry in your MCP client settings first.",
+      "reader":"The backend, frontend and data services share this source checkout. No isolated uninstall has been verified.",
+      "shelf":"The source checkout contains your bookmark database. No automated removal is offered to protect your library.",
+      "imgup":"Model files, runtimes and launcher scripts may be shared. No removal script is offered.",
+      "imgdraft":"Model files, runtimes and launcher scripts may be shared. No removal script is offered.",
+      "router":"Source checkout plus a private runtime; the database holds your encrypted provider keys. No removal script is offered.",
+      "auditor":"Source checkout with a local launcher script; there is no packaged uninstall. No removal script is offered."
+    }
+  }
+}
