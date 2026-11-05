@@ -5,7 +5,7 @@
   </picture>
 </h1>
 
-https://github.com/user-attachments/assets/9d224d66-da91-44e7-84c1-d2858a27093b
+https://github.com/user-attachments/assets/996c18f8-0a33-496c-a279-1d143ec60084
 
 **Click a card. The command is copied. Nothing runs.** Startclip is a startup map for the apps on your own machine:
 Docker stacks, local model servers, AI agents and desktop tools. It is one HTML file that works offline. Click a card
