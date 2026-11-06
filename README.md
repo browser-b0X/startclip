@@ -135,7 +135,7 @@ on the page, and a line that breaks the JSON is reported the same way.
 | Removal scripts | Arch-based systems (`pacman`), Docker Compose, AppImage and pipx. |
 | `launchpad-add-cell` skill | Arch-based systems with `pacman`. |
 | `setup.sh` | Linux. Tested in a throwaway home folder and run on CachyOS. |
-| `setup.cmd` | Windows. Static checks only so far: it has not yet been run on Windows. |
+| `setup.cmd` | Windows. The dry run (`-DryRun`) has run on Windows; a full run that makes the shortcuts is not tested there yet. |
 
 ## Development
 
