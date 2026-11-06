@@ -64,22 +64,29 @@ Startclip cannot start anything, and that is the point.
 
 ## Quick start
 
-```bash
+```
 git clone https://github.com/browser-b0X/startclip.git
 cd startclip
-xdg-open index.html
 ```
 
-On any other system, open `index.html` in your browser. It opens on Get started, which shows you how to fill the map.
+Then open `index.html` in your browser, or double-click it:
+
+| System | Command |
+| --- | --- |
+| Linux | `xdg-open index.html` |
+| macOS | `open index.html` |
+| Windows (PowerShell or Command Prompt) | `start index.html` |
+
+It opens on Get started, which shows you how to fill the map.
 
 Shortcuts are optional. Every step asks first, the default is No, and uninstalling removes only what the script made.
+Both scripts offer an app menu entry and a desktop shortcut, then print the page address and copy it so you can
+bookmark it.
 
-```bash
-bash setup.sh
-```
-
-On Windows, run `setup.cmd`. Both scripts offer an app menu entry and a desktop shortcut, then print the page address
-and copy it so you can bookmark it. Use `--dry-run` and `--uninstall` on Linux, or `-DryRun` and `-Uninstall` on Windows.
+| System | Command | Options |
+| --- | --- | --- |
+| Linux | `bash setup.sh` | `--dry-run`, `--uninstall` |
+| Windows | `.\setup.cmd` in PowerShell, or double-click `setup.cmd` | `-DryRun`, `-Uninstall` |
 
 ## Make it yours
 
