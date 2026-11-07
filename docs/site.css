@@ -1,0 +1,270 @@
+/* Startclip site. The page is the logo: the mark's own diagonal cut (slope 0.32) slices the hero into a lime
+   half and an ink half. Lime and ink are the logo's; the rest come from the app's dark theme. */
+@font-face { font-family: "Fira Sans"; font-weight: 500; font-display: swap; src: url(fonts/FiraSans-Medium.woff2) format("woff2"); }
+@font-face { font-family: "Fira Sans"; font-weight: 600; font-display: swap; src: url(fonts/FiraSans-SemiBold.woff2) format("woff2"); }
+@font-face { font-family: "Fira Sans"; font-weight: 800; font-display: swap; src: url(fonts/FiraSans-ExtraBold.woff2) format("woff2"); }
+@font-face { font-family: "Fira Mono"; font-weight: 500; font-display: swap; src: url(fonts/FiraMono-Medium.woff2) format("woff2"); }
+
+:root {
+  --lime: #c9f53f;
+  --ink: #14170f;
+  --bone: #eef0e7;
+  --moss: #aaad9e;
+  --line: #31342a;
+  --gutter: clamp(20px, 5vw, 88px);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+html { background: var(--ink); -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ink); color: var(--bone); font: 500 17px/1.55 "Fira Sans", system-ui, sans-serif; }
+h1, h2, p, dl, dd, ol { margin: 0; padding: 0; }
+ol { list-style: none; }
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+code { font-family: "Fira Mono", ui-monospace, "Liberation Mono", monospace; }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- the load sequence: head.js sets .seq before the first paint, site.js sets .run when it starts ---------- */
+.seq:not(.run) .lime,
+.seq:not(.run) .hook,
+.seq:not(.run) .bar,
+.seq:not(.run) .stage,
+.seq:not(.run) .wall { visibility: hidden; }
+.seq .film { clip-path: circle(0 at 50% 100%); }
+.seq .w { overflow: clip; }
+.iris { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.iris circle { fill: none; stroke: var(--lime); stroke-width: 4; filter: drop-shadow(0 0 16px rgba(201, 245, 63, .7)); }
+
+/* ---------- the slice ---------- */
+.hero {
+  --left: clamp(780px, 95svh, 1040px);       /* the cut's height at the left edge; site.js fits it to the content */
+  --right: calc(var(--left) - 32vw);         /* and at the right edge: the mark's slope, 0.32 */
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  min-height: 100svh;
+  padding-bottom: clamp(40px, 6svh, 72px);
+}
+.lime {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--lime);
+  clip-path: polygon(0 0, 100% 0, 100% var(--right), 0 var(--left));
+}
+
+/* the twelve commands run parallel to the cut, in the ink half */
+.wall { position: absolute; inset: 0; z-index: 0; overflow: hidden; mask-image: linear-gradient(#000 calc(100% - 150px), transparent); }
+.wall__rows {
+  position: absolute;
+  left: -30vw;
+  top: calc(var(--left) - 140px);
+  width: 170vw;
+  transform-origin: 30vw 140px;
+  transform: rotate(-17.74deg);
+  font: 500 clamp(15px, 1.25vw, 20px)/1 "Fira Mono", ui-monospace, monospace;
+}
+.row { height: 3.1em; display: flex; align-items: center; white-space: nowrap; color: var(--moss); opacity: .16; }
+.row span { margin-right: 2.4em; }
+.row--prompt { color: var(--lime); opacity: 1; text-shadow: 0 0 18px rgba(201, 245, 63, .45); padding-left: 114vw; }   /* the empty prompt the film ends its hook on */
+.row--prompt i { display: inline-block; width: .62em; height: 1.1em; margin-left: .5em; vertical-align: -.2em; background: var(--lime); box-shadow: 0 0 16px rgba(201, 245, 63, .55); }
+
+/* ---------- bar ---------- */
+.bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(16px, 2.6svh, 26px) var(--gutter) 0;
+  max-width: 1720px;
+  margin-inline: auto;
+  color: var(--ink);
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 26px; letter-spacing: -.01em; text-decoration: none; }
+.brand__mark { width: 30px; height: 34px; fill: currentColor; }
+.bar__link { font-weight: 600; text-underline-offset: 4px; }
+
+/* ---------- stage ---------- */
+.stage {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 47fr) minmax(0, 53fr);
+  gap: clamp(28px, 3.4vw, 64px);
+  align-items: start;
+  padding: clamp(20px, 4.6svh, 48px) var(--gutter) 0;
+  max-width: 1720px;
+  margin-inline: auto;
+}
+
+.pitch { color: var(--ink); }
+.hook { display: block; font-weight: 800; letter-spacing: -.02em; line-height: 1.02; }
+.hook__small { display: block; font-size: clamp(26px, 3.1vw, 50px); }
+.hook__big { display: block; font-size: clamp(46px, 5.6vw, 98px); margin-bottom: .1em; white-space: nowrap; }
+.hook mark {   /* the film's highlighter: the block leans, the word stands */
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  background: none;
+  color: var(--lime);
+  padding: 0 .1em;
+  margin-inline: .02em;
+}
+.hook mark::before { content: ""; position: absolute; inset: .06em 0 .02em; z-index: -1; background: var(--ink); transform: skewX(-10deg); transform-origin: 0 50%; }
+.w { display: inline-block; padding: .16em .05em; margin: -.16em -.05em; }   /* room for descenders when the mask is on */
+.w > span { display: inline-block; }
+.lead { margin-top: clamp(14px, 2.2svh, 24px); font-weight: 800; font-size: clamp(21px, 1.9vw, 30px); line-height: 1.2; letter-spacing: -.01em; }
+.about { margin-top: 10px; max-width: 34em; font-size: clamp(16px, 1.2vw, 19px); }
+
+.get { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(16px, 2.6svh, 28px); align-items: stretch; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 26px;
+  min-height: 64px;
+  border-radius: 12px;
+  background: var(--ink);
+  color: var(--lime);
+  font-weight: 800;
+  font-size: 19px;
+  text-decoration: none;
+}
+.node {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-height: 64px;
+  max-width: 100%;
+  padding: 8px 16px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  color: var(--ink);
+  text-align: left;
+}
+.node__label { font-weight: 600; font-size: 14px; }
+.node__cmd { font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.node__prompt { opacity: .6; }
+
+/* ---------- the film and its chain, on one ink slab that the ink half rises into ---------- */
+.reel { min-width: 0; border-radius: 18px; background: var(--ink); padding: 8px 8px 20px; }
+.film {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ink);
+}
+.film video { display: block; width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
+.controls { position: absolute; right: 12px; bottom: 12px; display: flex; gap: 8px; }
+.controls button {
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 9px;
+  background: rgba(20, 23, 15, .88);
+  color: var(--bone);
+  font-size: 15px;
+  font-weight: 600;
+}
+.controls button:hover { background: var(--ink); }
+.idle .controls #toggle { background: var(--lime); color: var(--ink); }
+.film.failed .controls { display: none; }
+.film__fail { position: absolute; left: 16px; right: 16px; bottom: 16px; padding: 10px 14px; border-radius: 9px; background: var(--ink); color: var(--bone); }
+
+.chain {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin: 20px 12px 0;
+}
+.chain button {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 22px 10px 0 0;
+  color: var(--moss);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: left;
+}
+.chain button:hover, .chain button[aria-current] { color: var(--bone); }
+.chain li { --fill: 0; }
+.chain button::before {   /* the socket, as on a card in the app */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2.5px solid var(--moss);
+}
+.chain li:not(:last-child) button::after {   /* the link to the next card */
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 13px;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--lime) calc(var(--fill) * 100%), var(--line) 0);
+}
+.chain li.on button::before { background: var(--lime); border-color: var(--lime); }
+
+/* ---------- below the hero ---------- */
+.promise { padding: clamp(40px, 8svh, 96px) var(--gutter); max-width: 1720px; margin-inline: auto; }
+.promise h2 { max-width: 16em; font-weight: 800; font-size: clamp(32px, 4vw, 60px); line-height: 1.06; letter-spacing: -.02em; }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px clamp(32px, 6vw, 96px); margin-top: clamp(28px, 5svh, 52px); }
+.facts dt { font-weight: 800; font-size: 21px; color: var(--lime); }
+.facts dd { margin-top: 4px; max-width: 36em; color: var(--moss); }
+
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 48px; max-width: 1720px; margin-inline: auto; padding: 28px var(--gutter) 36px; color: var(--moss); font-size: 15px; }
+.foot p { max-width: 44em; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-weight: 600; }
+.foot a { color: var(--bone); text-underline-offset: 3px; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 10;
+  transform: translate(-50%, 14px);
+  max-width: calc(100vw - 32px);
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--bone);
+  color: var(--ink);
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .16s, transform .16s;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- narrow: type first, then the film, the cut still running across ---------- */
+@media (max-width: 1040px) {
+  .hero { min-height: 0; }
+  .stage { grid-template-columns: minmax(0, 1fr); }
+  .hook__small { font-size: clamp(26px, 6vw, 46px); }
+  .hook__big { font-size: clamp(36px, 12.2vw, 112px); }
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .node__cmd { white-space: normal; overflow-wrap: anywhere; }
+}
+
+/* phones get the 20 s cut, upright */
+@media (max-width: 700px) {
+  .film { aspect-ratio: 9 / 16; }
+  .reel { width: 100%; max-width: 420px; margin-inline: auto; }
+  .chain { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 0; }
+  .chain li:nth-child(3n) button::after { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast { transition: none; }
+}

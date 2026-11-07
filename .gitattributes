@@ -1,3 +1,5 @@
 *.cmd text eol=crlf
 *.ps1 text eol=crlf
 *.ico binary
+# The site films stay out of the Download ZIP; Pages and a clone still have them.
+docs/media export-ignore

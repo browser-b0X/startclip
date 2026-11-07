@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; media-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Startclip: your local startup map</title>
+<script src="head.js"></script>
+<meta name="description" content="Click a card. The command is copied. Nothing runs. Startclip is one offline HTML file that maps the apps on your own machine.">
+<meta name="theme-color" content="#c9f53f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Startclip: your local startup map">
+<meta property="og:description" content="Click a card. The command is copied. Nothing runs.">
+<meta property="og:url" content="https://browser-b0x.github.io/startclip/">
+<meta property="og:image" content="https://browser-b0x.github.io/startclip/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/FiraSans-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<main>
+  <section class="hero" aria-labelledby="hook">
+    <div class="wall" aria-hidden="true"></div>
+    <div class="lime" aria-hidden="true"></div>
+
+    <header class="bar">
+      <a class="brand" href="./" aria-label="Startclip home">
+        <svg class="brand__mark" viewBox="14 10 72 80" aria-hidden="true"><path d="M78.11 21.99L70.97 30.42Q64.78 25.52 57.99 25.52Q54.46 25.52 52.61 26.85Q50.76 28.19 50.76 30.59Q50.76 32.31 51.71 33.43Q52.66 34.55 54.89 35.58Q57.13 36.61 61.94 38.16Q63.43 38.63 64.79 39.15L42.45 46.3Q40.09 44.81 38.55 43.15Q34.42 38.68 34.42 31.88Q34.42 26.55 37.3 22.51Q40.19 18.47 45.3 16.28Q50.42 14.08 56.78 14.08Q63.58 14.08 68.78 16.06Q73.98 18.04 78.11 21.99ZM56.46 48.81Q62.27 51.26 65.4 54.52Q69.66 58.94 69.66 66.77Q69.66 72.45 66.74 76.79Q63.81 81.13 58.27 83.54Q52.72 85.95 45.24 85.95Q30.96 85.95 21.93 77.26L29.76 68.58Q36.89 74.42 44.63 74.42Q48.68 74.42 50.91 72.66Q53.15 70.9 53.15 67.97Q53.15 65.91 52.29 64.58Q51.43 63.24 49.23 62.17Q47.04 61.09 42.83 59.8Q37.46 58.12 33.77 56.07Z"/></svg>
+        <span>Startclip</span>
+      </a>
+      <a class="bar__link" href="https://github.com/browser-b0X/startclip">View on GitHub</a>
+    </header>
+
+    <div class="stage">
+      <div class="pitch">
+        <h1 class="hook" id="hook">
+          <span class="hook__small">You installed it.</span>
+          <span class="hook__big">You <mark>forgot</mark> how</span>
+          <span class="hook__big">to start it.</span>
+        </h1>
+        <p class="lead">Click a card. The command is copied.<br>Nothing runs.</p>
+        <p class="about">Startclip is a startup map for the apps on your own machine: Docker stacks, local model servers, AI agents and desktop tools. It is one HTML file that works offline. It starts empty, and you fill it with your own apps.</p>
+        <div class="get">
+          <a class="button" href="https://github.com/browser-b0X/startclip/archive/refs/heads/main.zip">Download Startclip</a>
+          <button class="node" type="button" id="clone" data-copy="git clone https://github.com/browser-b0X/startclip.git">
+            <span class="node__label">Or copy the clone command</span>
+            <code class="node__cmd"><span class="node__prompt">$</span> git clone https://github.com/browser-b0X/startclip.git</code>
+          </button>
+        </div>
+      </div>
+
+      <div class="reel">
+        <div class="film idle" id="film">
+          <video id="video" playsinline muted poster="media/poster-16x9.jpg" aria-label="The Startclip film, with a lo-fi score" aria-describedby="film-text"></video>
+          <div class="controls">
+            <button type="button" id="toggle">Play film</button>
+            <button type="button" id="sound">Turn on sound</button>
+          </div>
+          <p class="film__fail" id="fail" hidden>The film did not load. <a href="media/film-16x9.mp4">Open it on its own</a>.</p>
+          <noscript><p class="film__fail"><a href="media/film-16x9.mp4">Open the film</a></p></noscript>
+        </div>
+        <ol class="chain" id="chain" aria-label="Jump to a part of the film"></ol>
+        <p class="sr-only" id="film-text">The film opens on a wall of start commands and the line: you installed it, you forgot how to start it. A terminal fails because the Docker engine is not running. A click on a Startclip card copies the command with its prerequisite, and nothing runs. The map draws the startup chain, the inspector lists its steps, and four model servers are flagged for sharing a port.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise" aria-labelledby="promise">
+    <h2 id="promise">Startclip cannot start anything, and that is the point.</h2>
+    <dl class="facts">
+      <div><dt>No execution</dt><dd>There are no URL schemes, no local helper and no background service. The page writes to your clipboard and stops there.</dd></div>
+      <div><dt>No network</dt><dd>A Content-Security-Policy of default-src 'none' blocks every request. There are no fonts, scripts or images to fetch.</dd></div>
+      <div><dt>No install</dt><dd>It is one index.html with no framework and no build step.</dd></div>
+      <div><dt>No account, no telemetry</dt><dd>Your workspace order, recent copies and theme stay in your browser's local storage.</dd></div>
+    </dl>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>The code and logo files are MIT licensed, copyright 2026 browser-b0X. The Startclip name and logo are the project's trademarks. The film shows the author's own apps.</p>
+  <nav aria-label="Project links">
+    <a href="https://github.com/browser-b0X/startclip/issues/new/choose">Report a bug or suggest an idea</a>
+    <a href="https://bio.site/browserb0x">Support the project</a>
+    <a href="https://github.com/browser-b0X/startclip/blob/main/TRADEMARKS.md">Trademarks</a>
+  </nav>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="site.js"></script>
+</body>
+</html>
