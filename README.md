@@ -7,10 +7,10 @@
 
 https://github.com/user-attachments/assets/996c18f8-0a33-496c-a279-1d143ec60084
 
-**Click a card. The command is copied. Nothing runs.** Startclip is a startup map for the apps on your own machine:
-Docker stacks, local model servers, AI agents and desktop tools. It is one HTML file that works offline. Click a card
-and its start command lands on your clipboard, along with anything that has to start first. You read it, you paste it,
-you stay in charge. It starts empty and holds only the apps you add.
+**Click a card. The command is copied. Nothing runs.** Startclip is a startup map, a one-page dashboard of start
+commands for the apps on your own machine: Docker stacks, local model servers, AI agents and desktop tools. It is one
+HTML file that works offline. Click a card and its start command lands on your clipboard, along with anything that has
+to start first. You read it, you paste it, you stay in charge. It starts empty and holds only the apps you add.
 
 <p align="center">
   <a href="https://github.com/browser-b0X/startclip/archive/refs/heads/main.zip"><img src="https://img.shields.io/badge/Download_Startclip-C9F53F?style=for-the-badge" alt="Download Startclip as a ZIP" height="40"></a>
@@ -137,6 +137,24 @@ on the page, and a line that breaks the JSON is reported the same way.
 | `setup.sh` | Linux. Tested in a throwaway home folder and run on CachyOS. |
 | `setup.cmd` | Windows. Tested on Windows: the dry run, a full run whose shortcuts open the page, and the uninstall. |
 
+## How it's built
+
+Startclip is one HTML page. The map, its styles and its script all live in `index.html`, and the page never runs a
+command: it only copies one to your clipboard.
+
+| Part | Built with |
+| --- | --- |
+| The page | One `index.html` with plain JavaScript and CSS, no framework and no build step |
+| Safety | A Content-Security-Policy that starts from `default-src 'none'`, so the page makes no network requests |
+| Your map | A JSON catalog inside the page; your card order, recent copies and theme stay in the browser's local storage |
+| Shortcuts | `setup.sh` on Linux and `setup.cmd` on Windows, each with a dry run and an uninstall |
+| Adding apps | The `launchpad-add-cell` skill for Claude Code, or one JSON line by hand |
+| Checks | Unit, browser and setup tests run with `node --test`, with Playwright and axe-core, on a made-up demo map |
+
+Much of Startclip's code was written with [Claude Code](https://claude.com/claude-code). browser-b0X designs the page,
+decides what it does and how it looks, directs the build and tests each change by using it. Claude is credited as a
+co-author on the commits.
+
 ## Development
 
 ```bash
@@ -180,6 +198,19 @@ Ko-fi and Buy Me a Coffee are both on that page.
 
 > Every contribution is appreciated, but never expected.<br>
 > Using the project, reporting bugs, and sharing it with others helps too.
+
+## More from browser-b0X
+
+Free, open-source apps that run on your own computer:
+
+- [Marteloio](https://browser-b0x.github.io/marteloio/) is an eBay listing generator: type your notes and get a
+  title, item specifics and an HTML description to paste in.
+- [SuperBookmarks](https://browser-b0x.github.io/super-bookmark-manager/) is a local bookmark manager for
+  Windows: one library for browser bookmarks, Telegram and WhatsApp links and saved posts, with offline copies.
+
+[All apps](https://browser-b0x.github.io/) ·
+[X](https://x.com/browserb0x) ·
+[YouTube](https://www.youtube.com/@browser-b0x)
 
 ## License
 
